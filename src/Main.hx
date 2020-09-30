@@ -69,6 +69,7 @@ class Main extends Sprite
 		var startY:Float = 0.9 * Lib.current.stage.stageHeight;
 		
 		var poleColor:Int = 0xFFE97F;
+		var poleHeight:Float = 0.5 * Lib.current.stage.stageHeight;
 		
 		var ground:Sprite = new Sprite();
 		ground.x = 0;
@@ -79,7 +80,7 @@ class Main extends Sprite
 		ground.graphics.drawRect(0, 0, Lib.current.stage.stageWidth, 20);
 		ground.graphics.endFill();
 		
-		var startPole:PoleStack = new PoleStack(poleDiameter, 0.5 * Lib.current.stage.stageHeight, poleColor);
+		var startPole:PoleStack = new PoleStack(poleDiameter, poleHeight, poleColor);
 		startPole.x = startX;
 		startPole.y = startY;
 		addChild(startPole);
@@ -87,7 +88,7 @@ class Main extends Sprite
 		var middleX:Float = 0.5 * Lib.current.stage.stageWidth;
 		var middleY:Float = startY;
 		
-		var middlePole:PoleStack = new PoleStack(poleDiameter, 0.5 * Lib.current.stage.stageHeight, poleColor);
+		var middlePole:PoleStack = new PoleStack(poleDiameter, poleHeight, poleColor);
 		middlePole.x = middleX;
 		middlePole.y = middleY;
 		addChild(middlePole);
@@ -95,7 +96,7 @@ class Main extends Sprite
 		var destinationX:Float = 0.75 * Lib.current.stage.stageWidth;
 		var destinationY:Float = startY;
 		
-		var destinationPole:PoleStack = new PoleStack(poleDiameter, 0.5 * Lib.current.stage.stageHeight, poleColor);
+		var destinationPole:PoleStack = new PoleStack(poleDiameter, poleHeight, poleColor);
 		destinationPole.x = destinationX;
 		destinationPole.y = destinationY;
 		addChild(destinationPole);
