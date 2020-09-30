@@ -27,9 +27,13 @@ class PoleStack extends Sprite
 {
 	public var stack:Array<Sprite> = [];
 	
-	public function new()
+	public function new(width:Float, height:Float, color:Int)
 	{
 		super();
+		
+		graphics.beginFill(color);
+		graphics.drawRect(-0.5 * width, -height, width, height);
+		graphics.endFill();
 	}
 	
 	public function redraw():Void
@@ -75,38 +79,26 @@ class Main extends Sprite
 		ground.graphics.drawRect(0, 0, Lib.current.stage.stageWidth, 20);
 		ground.graphics.endFill();
 		
-		var startPole:PoleStack = new PoleStack();
+		var startPole:PoleStack = new PoleStack(poleDiameter, 0.5 * Lib.current.stage.stageHeight, poleColor);
 		startPole.x = startX;
 		startPole.y = startY;
 		addChild(startPole);
 		
-		startPole.graphics.beginFill(poleColor);
-		startPole.graphics.drawRect(-0.5 * poleDiameter, -0.5 * Lib.current.stage.stageHeight, poleDiameter, 0.5 * Lib.current.stage.stageHeight);
-		startPole.graphics.endFill();
-		
 		var middleX:Float = 0.5 * Lib.current.stage.stageWidth;
 		var middleY:Float = startY;
 		
-		var middlePole:PoleStack = new PoleStack();
+		var middlePole:PoleStack = new PoleStack(poleDiameter, 0.5 * Lib.current.stage.stageHeight, poleColor);
 		middlePole.x = middleX;
 		middlePole.y = middleY;
 		addChild(middlePole);
 		
-		middlePole.graphics.beginFill(poleColor);
-		middlePole.graphics.drawRect(-0.5 * poleDiameter, -0.5 * Lib.current.stage.stageHeight, poleDiameter, 0.5 * Lib.current.stage.stageHeight);
-		middlePole.graphics.endFill();
-		
 		var destinationX:Float = 0.75 * Lib.current.stage.stageWidth;
 		var destinationY:Float = startY;
 		
-		var destinationPole:PoleStack = new PoleStack();
+		var destinationPole:PoleStack = new PoleStack(poleDiameter, 0.5 * Lib.current.stage.stageHeight, poleColor);
 		destinationPole.x = destinationX;
 		destinationPole.y = destinationY;
 		addChild(destinationPole);
-		
-		destinationPole.graphics.beginFill(poleColor);
-		destinationPole.graphics.drawRect(-0.5 * poleDiameter, -0.5 * Lib.current.stage.stageHeight, poleDiameter, 0.5 * Lib.current.stage.stageHeight);
-		destinationPole.graphics.endFill();
 		
 		poles = [startPole, middlePole, destinationPole];
 		
